@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+} 
+.cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh; 
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 16px;
+    background-color: transparent;
+}
+
+.table thead tr th {
+    font-size: 17px ;
+    font-weight: 300;
+}
+
+.table>thead>tr>th{
+    padding: 12px 8px;
+    vertical-align: middle;
+    border-color: #ddd;
+    font-weight: 300;
+}
+
+.table>tbody>tr>td{
+    padding: 12px 8px;
+    vertical-align: middle;
+    border-color: #ddd;
+    font-weight: 300;
+    font-size:14px;
+    color: #3c4858;
+}

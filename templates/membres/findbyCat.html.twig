@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des Membres par Club {% endblock %}
+    {% block stylesheets %}
+   <link rel="stylesheet" href="{{ asset('css/styletab.css') }}">
+    
+{% endblock %}
+{% block body %}
+<div class="cont justify-content-center">
+    <div class="row">
+
+{{form_start(form)}}
+
+<div class="form-row align-items-end">
+<div class="col">
+{{form_row(form.category)}}
+</div>
+<div class="col">
+<div class="form-groupe">
+<button type="submit" class="btn btn-success btn-round btn-just-icon btn-sm">Rechercher</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+{{form_end(form)}}
+{% if membres %}
+<div class="container">
+  <div class="table-responsive">
+<table id="clubs" class="table table-striped">
+<thead>
+<tr>
+<th>Nom</th>
+<th>email</th>
+<th>category</th>
+</tr>
+</thead>
+<tbody>
+{% for membre in membres %}
+<tr>
+<td>{{membre.nom}}</td>
+<td>{{membre.email}}</td>
+<td>{{membre.club.nom}}</td>
+<td>
+<a href="/membre/{{membre.id}}" class="btn btn-info btn-round btn-just-icon btn-sm">Détails</a>
+
+     <a href="/membre/editMembre/{{membre.id}}" class="btn btn-success btn-round btn-just-icon btn-sm">Modifier</a>
+
+      <a href="/membre/deleteMembre/{{membre.id}}" class="btn btn-danger btn-round btn-just-icon btn-sm" onClick="return confirm('Etes-vous sur de supprimer ce club ?');">Supprimer</a>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<p>Aucun Membre</p>
+</div>
+</div>
+{% endif %}
+{% endblock %}
+

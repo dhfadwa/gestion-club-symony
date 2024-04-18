@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des clubs {% endblock %}
+    {% block stylesheets %}
+   <link rel="stylesheet" href="{{ asset('css/styledetmembre.css') }}">
+    
+{% endblock %}
+{% block body %}
+
+<section class="section about-section gray-bg">
+            <div class="container">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-lg-6">
+                        <div class="about-text go-to">
+                            <h3 class="dark-color">About {{membre.nom}}</h3>
+                            <h6 class="theme-color lead">{{membre.club.nom}}</h6>
+                            <p> <mark>{{membre.category.titre}}</mark> {{membre.category.description}}</p>
+                            <div class="row about-list">
+                                <div class="col-md-6">
+                                    <div class="media">
+                                        <label>Nom & Prénom : </label>
+                                        <p>{{membre.nom}}</p>
+                                    </div>
+                                    <div class="media">
+                                        <label>Adresse : </label>
+                                        <p></p>
+                                    </div>
+                                   
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="media">
+                                        <label>E-mail: </label>
+                                        <p>{{membre.email}}</p>
+                                    </div>
+                                    <div class="media">
+                                        <label>Telephone</label>
+                                        <p>{{membre.telephone}}</p>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-avatar">
+                                               <img src="{{ asset('images/' ~ membre.image) }}" alt="Photo" width="300">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="counter">
+                    <div class="row">
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2" data-to="500" data-speed="500">{{membre.id}}</h6>
+                                <p class="m-0px font-w-600">Identifiant</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2" data-to="150" data-speed="150">{{membre.telephone}}</h6>
+                                <p class="m-0px font-w-600">Telephone</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2" data-to="850" data-speed="850">{{membre.niveau}}</h6>
+                                <p class="m-0px font-w-600">Niveau </p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2" data-to="190" data-speed="190">190</h6>
+                                <p class="m-0px font-w-600">Telephonic Talk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des categories {% endblock %}
+   {% block stylesheets %}
+   <link rel="stylesheet" href="{{ asset('css/styletab.css') }}">
+    
+{% endblock %}
+{% block body %}
+  {% if categorys %}
+  <div class="container">
+<a  href="{{path('new_category')}}" >Ajouter Categorie</a>
+  <div class="table-responsive">
+    <table id="categorys" class="table">
+    <thead>
+    <tr>
+      <th>titre</th>
+      <th>description</th>
+
+      <th>Actions</th>
+    </tr>
+    <thead>  
+    <tbody>
+     {% for category in categorys %}
+     <tr>
+     <td>{{category.titre}}</td>
+    <td>{{category.description}}</td>
+
+     <td><a href="/category/{{category.id}}" class="btn btn-info btn-round btn-just-icon btn-sm">Détails</a>
+
+     <a href="/editcat/{{category.id}}" class="btn btn-success btn-round btn-just-icon btn-sm">Modifier</a>
+
+      <a href="/category/deletecat/{{category.id}}" class="btn btn-danger btn-round btn-just-icon btn-sm" onClick="return confirm('Etes-vous sur de supprimer cette categorie ?');">Supprimer</a>
+     </td>
+     </tr>
+     {% endfor %}
+     </tbody>
+     </table>
+  {% else %}
+    <p> Aucun categorie</p>
+    </div>
+    </div>
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des clubs {% endblock %}
+    {% block stylesheets %}
+   <link rel="stylesheet" href="{{ asset('css/styledet.css') }}">
+    
+{% endblock %}
+{% block body %}
+
+
+
+
+
+<div class="container mt-5">
+    
+    <div class="row d-flex justify-content-center">
+        
+        <div class="col-md-7">
+            
+            <div class="card p-3 py-4">
+                
+                <div class="text-center">
+                    <img src="{{ asset('images/' ~ club.image) }}" alt="Photo" width="150">
+                </div>
+                
+                <div class="text-center mt-3">
+                    <span class="bg-secondary p-1 px-4 rounded text-white">club {{club.id}}</span>
+                     <span class="bg-secondary p-1 px-4 rounded text-white">catégorie: {{club.category.titre}}</span>
+                    <h5 class="mt-2 mb-0">{{club.nom}}</h5>
+                    
+                    <div class="px-4 mt-1">
+                        <p class="fonts">{{club.description}} </p>
+                    
+                    </div>
+                    <div class="px-4 mt-1">
+                        <p class="fonts">{{club.type}} </p>
+                    
+                    </div>
+                    
+                    
+                    
+                    <div class="buttons">
+                        
+                        <a class="btn btn-info btn-round btn-just-icon btn-sm"" href="/">Retour</a>
+                         <a class="btn btn-danger btn-round btn-just-icon btn-sm" href="/club/delete/{{club.id}}"onClick="return confirm('Etes-vous sur de supprimer ce club ?');">Supprimer</a>
+                    </div>
+                    
+                    
+                </div>
+                
+               
+                
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+
+{% endblock %}

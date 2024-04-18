@@ -1,0 +1,36 @@
+ {% extends 'base.html.twig' %}
+
+{% block title %}Liste des clubs {% endblock %}
+    {% block stylesheets %}
+   <link rel="stylesheet" href="{{ asset('css/card.css') }}">
+    
+{% endblock %}
+{% block body %}
+<div class="container">
+ <div class="col-lg-4">
+        <div class="card card-margin">
+            <div class="card-header no-border">
+                <h5 class="card-title">Détaille Categorie</h5>
+            </div>
+            <div class="card-body pt-0">
+                <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        <div class="widget-49-date-primary">
+                            <span class="widget-49-date-day">{{category.id}}</span>
+                            <span class="widget-49-date-month">Id</span>
+                        </div>
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-pro-title">Nom de categorie : {{category.titre}}</span>
+                        
+                        </div>
+                    </div>
+                    <ol class="widget-49-meeting-points">
+                        <li class="widget-49-meeting-item"><span>Description : {{category.description}}</span></li>
+                        
+                    </ol>
+                    <div class="widget-49-meeting-action">
+                       
+                    </div>
+                </div>
+            </div>
+            </div>{% endblock %}

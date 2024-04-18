@@ -1,0 +1,9 @@
+homepage:
+    path: /
+    controller: App\Controller\IndexController::homelist
+evenement:
+    path: /evenement
+    controller: App\Controller\EvenementController::evenement
+homelogin:
+    path: /home
+    controller: App\Controller\IndexController::homelogin

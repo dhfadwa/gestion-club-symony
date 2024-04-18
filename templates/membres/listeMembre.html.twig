@@ -1,0 +1,45 @@
+{# Affichage de la liste des membres #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des clubs{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<body>
+    {% if pagination %}
+    <div class="container py-5">
+        <div class="row text-center text-white">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4">Les Membres</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row text-center">
+            {% for membre in pagination %}
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-4">
+                <div class="bg-white rounded shadow-sm py-5 px-4">
+                    <img src="{{ asset('images/' ~ membre.image) }}" alt="Photo" width="70" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                    <h5 class="mb-0">{{ membre.nom }}</h5>
+                    <span class="small text-uppercase text-muted">{{membre.email}}</span><br>
+                    <span class="small text-uppercase text-muted">{{membre.category.titre}}</span>
+                    <ul class="social mb-0 list-inline mt-3">
+                        <li class="list-inline-item"><a href="/membre/{{membre.id}}" class="btn btn-info btn-round btn-just-icon btn-sm">Détails</a></li>
+                        <li class="list-inline-item"> <a href="/membre/editMembre/{{membre.id}}" class="btn btn-success btn-round btn-just-icon btn-sm">Modifier</a></li>
+                        <li class="list-inline-item"> <a href="/membre/deleteMembre/{{membre.id}}" class="btn btn-danger btn-round btn-just-icon btn-sm" onClick="return confirm('Etes-vous sur de supprimer ce club ?');">Supprimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {{ knp_pagination_render(pagination) }} {# Affichage des liens de pagination #}
+    {% endif %}
+</body>
+{% endblock %}

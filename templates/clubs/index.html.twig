@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des clubs {% endblock %}
+       {% block stylesheets %}
+   <link rel="stylesheet" href="{{ asset('css/styletab.css') }}">
+    
+{% endblock %}
+{% block body %}
+
+  {% if clubs %}
+<div class="container">
+  <div class="table-responsive">
+    <table id="clubs" class="table">
+    <thead>
+    <tr>
+          <th></th>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Type</th>
+      <th>Categorie</th>
+
+      <th>Actions</th>
+    </tr>
+    <thead>
+    <tbody>
+     {% for club in clubs %}
+     <tr>
+      <td><img src="{{ asset('images/' ~ club.image) }}" alt="Photo" width="150"></td>
+     <td>{{club.nom}}</td>
+    <td>{{club.email}}</td>
+     <td>{{club.type}}</td>
+     <td>{{club.category.titre}}</td>
+
+     <td>
+     <a href="/club/{{club.id}}" class="btn btn-info btn-round btn-just-icon btn-sm">Détails</a>
+     <a href="/club/edit/{{club.id}}" class="btn btn-success btn-round btn-just-icon btn-sm">Modifier</a>
+
+      <a href="/club/delete/{{club.id}}" class="btn btn-danger btn-round btn-just-icon btn-sm" onClick="return confirm('Etes-vous sur de supprimer ce club ?');">Supprimer</a>
+     </td>
+     </tr>
+     {% endfor %}
+     </tbody>
+     </table>
+  {% else %}
+    <p> Aucun club</p>
+</div>
+</div>
+  {% endif %}
+{% endblock %}
